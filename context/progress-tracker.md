@@ -4,19 +4,19 @@ Update this file whenever the current phase, active feature, or implementation s
 
 ## Current Phase
 
-- Not started
+- 01-design-system — complete
 
 ## Current Goal
 
-- Define the immediate implementation goal here.
+- Next feature unit (see Next Up).
 
 ## Completed
 
-- None yet.
+- 01-design-system: shadcn/ui (base-nova, Base UI) + lucide-react installed; 7 primitives in `components/ui/` (button, card, dialog, input, tabs, textarea, scroll-area); `lib/utils.ts` re-exports `cn()`; `app/globals.css` is dark-only with project tokens mapped to Tailwind utilities; `tsc`, `eslint`, and `next build` pass.
 
 ## In Progress
 
-- None yet.
+- None — 01-design-system done, awaiting next feature unit.
 
 ## Next Up
 
