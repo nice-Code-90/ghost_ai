@@ -7,10 +7,11 @@ Update this file whenever the current phase, active feature, or implementation s
 - 01-design-system — complete
 - 02-editor-chrome — complete
 - 03-auth — complete
+- 04-project-dialogs — complete
 
 ## Current Goal
 
-- Auth wired with Clerk: provider, auth pages, route protection, and user menu (see `context/feature-specs/03-auth.md`).
+- 04-project-dialogs done, awaiting next feature unit.
 
 ## Completed
 
@@ -19,14 +20,15 @@ Update this file whenever the current phase, active feature, or implementation s
 - editor-layout wiring: `components/editor/editor-layout.tsx` composes navbar + sidebar + content with `useState` sidebar toggle; placeholder `app/editor/page.tsx` hosts it (canvas placeholder until the canvas chapter); `tsc`, `eslint`, and `next build` pass.
 - 03-auth: `proxy.ts` at project root (manual public-path check against `NEXT_PUBLIC_CLERK_SIGN_IN_URL` / `NEXT_PUBLIC_CLERK_SIGN_UP_URL`, `auth.protect()` for everything else, standard Clerk matcher); `app/layout.tsx` wrapped with `ClerkProvider` using `dark` from `@clerk/ui/themes` + `lib/clerk-appearance.ts` (CSS-var variables, no hardcoded colors); `app/sign-in/[[...sign-in]]/page.tsx` + `app/sign-up/[[...sign-up]]/page.tsx` share `components/auth/auth-shell.tsx` (two-panel on `lg`, form-only on small screens, text-only highlight list, token utilities only); `app/page.tsx` redirects authenticated → `/editor`, unauthenticated → `/sign-in`; `components/editor/editor-navbar.tsx` right section hosts default `UserButton`; `app/editor/page.tsx` calls `auth.protect()`; `.env.local` holds the two Clerk URL vars; `@clerk/ui` installed; `tsc`, `eslint`, and `next build` pass.
 - 03-auth restyle: `components/auth/auth-shell.tsx` is now 50/50 (`lg:grid-cols-2`) — left `bg-surface` panel (logo row with `bg-brand` mark, headline, description, 3 lucide-icon features in `bg-accent-dim` chips, faint copyright footer) vs `bg-base` right with centered Clerk form; mobile stays form-only; no gradients, no hardcoded colors. Font fix: `app/globals.css` now maps `--font-sans` → `var(--font-geist-sans)` (+ `--font-mono` → Geist Mono) so Tailwind `font-sans` resolves to Geist, and `lib/clerk-appearance.ts` points Clerk `fontFamily` at `var(--font-geist-sans)`; `tsc`, `eslint`, and `next build` pass.
+- 04-project-dialogs: `lib/project-slug.ts` (`slugifyProjectName`), `lib/mock-projects.ts` (2 owned + 1 shared mock), `components/editor/use-project-dialogs.tsx` (`ProjectDialogsProvider` + `useProjectDialogs` managing dialog/form/loading state), `components/editor/project-dialogs.tsx` (create with live slug preview, rename prefilled + autofocus + Enter submits, delete destructive-only), `components/editor/editor-home.tsx` (centered heading/description/`Plus` New Project, no cards), `components/editor/project-sidebar.tsx` (owned-only rename/delete actions, shared hidden, mobile `bg-black/50 md:hidden` scrim closing on tap), `components/editor/editor-layout.tsx` (provider + dialogs), `app/editor/page.tsx` (hosts `EditorHome`); `tsc`, `eslint`, and `next build` pass.
 
 ## In Progress
 
-- None — 03-auth done, awaiting next feature unit.
+- None — 04-project-dialogs done, awaiting next feature unit.
 
 ## Next Up
 
-- Next feature unit after 03-auth.
+- Canvas chapter after 04-project-dialogs.
 
 ## Open Questions
 
